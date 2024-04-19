@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,9 @@ public class CustomArrayCollection<T> {
    * @param size the initial size of the collection
    */
   public CustomArrayCollection(int size) {
+    if (size < 1 || size > 100) {
+      throw new InputMismatchException();
+    }
     this.array = (T[]) (new Object[size]);
     this.size = size;
     this.startIndex = 0;
@@ -42,12 +46,18 @@ public class CustomArrayCollection<T> {
 
   // Method to change start index
   public void changeStartIndex(int startIndex) {
+    if (startIndex < -100 || startIndex > 100) {
+      throw new IndexOutOfBoundsException();
+    }
     this.startIndex = startIndex;
     this.endIndex = startIndex + size - 1;
   }
 
   // Method to change end index
   public void changeEndIndex(int endIndex) {
+    if (endIndex < 0 || endIndex > 200) {
+      throw new IndexOutOfBoundsException();
+    }
     this.endIndex = endIndex;
     this.startIndex = endIndex - size + 1;
   }

@@ -32,18 +32,10 @@ public class Main {
             if (Objects.equals(type, "Integer")) {
               System.out.println("Enter array's size(1-100):");
               size = scanner.nextInt();
-              if (size < 1 || size > 100) {
-                throw new InputMismatchException();
-              }
-              scanner.nextLine();
               intCollection = new CustomArrayCollection<>(size);
             } else if (Objects.equals(type, "String")) {
               System.out.println("Enter array's size(1-100):");
               size = scanner.nextInt();
-              if (size < 1 || size > 100) {
-                throw new InputMismatchException();
-              }
-              scanner.nextLine();
               stringCollection = new CustomArrayCollection<>(size);
             } else {
               System.out.println("Incorrect type");
@@ -127,9 +119,6 @@ public class Main {
             System.out.println("Enter start index:(-100 - 100)");
             index = scanner.nextInt();
             scanner.nextLine();
-            if (index < -100 || index > 100) {
-              throw new IndexOutOfBoundsException();
-            }
             if (stringCollection != null) {
               stringCollection.changeStartIndex(index);
             } else {
@@ -140,9 +129,6 @@ public class Main {
           case "5":
             System.out.println("Enter end index(0 - 200):");
             index = scanner.nextInt();
-            if (index < 0 || index > 200) {
-              throw new IndexOutOfBoundsException();
-            }
             scanner.nextLine();
             if (stringCollection != null) {
               stringCollection.changeEndIndex(index);
